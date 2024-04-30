@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BadCodeSmells</title>
+
+    <!-- fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Jersey+10&family=Jersey+25&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!--Icon-->
+    <script src="https://unpkg.com/feather-icons"></script>
+
+    <!--Style-->
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+
+  <body>
+    <!--navbarStart-->
+    <!--span buat perbedaan warnanya-->
+    <nav class="navbar">
+      <a href="#navbar" class="navbar-logo">THE COUPLERS
+      <p>Created by  Herlinda  &  Theodore</p></a>
+
+      <h1>
+        <div class="navbar-nav">
+          <a href="#Fea">Feature Envy</a>
+          <a href="#Inapp">Inappropriate Intimacy</a>
+          <a href="#Mess">Message Chain</a>
+          <a href="#midd">Middle Man</a>
+        </div>
+      </h1>
+
+      <div class="navbar-side">
+        <a href="#" id="side-menu"><i data-feather="align-right"></i></a>
+      </div>
+    </nav>
+
+    <!--navbarEnd-->
+
+    <!--PicStart-->
+    <section class="picture" id="navbar">
+      <main class="content">
+        <h1>The Couplers</h1>
+        <p>
+          jenis code smell yang menampilkan adanya pengelompokkan yang ketat
+          (Tight Coupling) antar class/modules atau menampilkan bagaimana bila
+          coupling digantikan dengan delegasi berlebihan (Excessive Delegation).
+        </p>
+        <p>
+          Tight Coupling menunjukkan bahwa kode dari suatu class atau module
+          memiliki ketergantungan berat terhadap detail internal dari komponen
+          lainnya. Sedangkan Excessive Delegation menunjukkan terdapat banyak
+          lapisan abstraksi atau komponen perantara yang tidak esensial dalam
+          kode.
+        </p>
+        <p>
+          Walaupun pada umumnya The Couplers tidak akan mempengaruhi jalannya
+          program, namun proses maintenance dan update dapat secara signifikan
+          menjadi lebih sulit untuk dilakukan ke depannya karena adanya
+          dependensi tinggi antar komponen-komponen program sehingga sulit untuk
+          diubah atau dilakukan testing secara terpisah (Test in Isolation).
+        </p>
+        <p>Terdapat 4 tipe dari The Couplers, yaitu:</p>
+        <p>• Feature Envy</p>
+        <p>• Inappropriate Intimacy</p>
+        <p>• Message Chains</p>
+        <p>• Middle Man</p>
+        <!--<a href="#" class="cta">beli bakso</a> -->
+      </main>
+    </section>
+
+    <!--PicEnd-->
+
+    <!--Fea start-->
+    <section id="Fea" class="Fea">
+      <h2>FEATURE ENVY</h2>
+
+      <div class="row">
+        <div class="fea-img">
+          <img src="img/pngwing.com.png" alt="FEATURE ENVY" />
+        </div>
+
+        <div class="content">
+          <!--<h3>Kenapa ini?</h3> -->
+          <p>
+            Feature Envy adalah code smell dimana suatu method dari suatu class
+            mengakses detail dari object lain secara berlebihan. Dalam kata
+            lain, method tersebut lebih tertarik akan data dan perilaku dari
+            class lain daripada classnya sendiri (cemburu). Hal ini
+            mengindikasikan bahwa method dari class tersebut dapat dipindahkan
+            atau didefinisikan di lokasi yang lebih baik seperti di class yang
+            dicemburui, superclass dari kedua class, atau class lainnya bila
+            perlu.
+          </p>
+        </div>
+      </div>
+
+      <div class="rw">
+        <h3>Contoh :</h3>
+        <p>
+          Dalam case ini, class Student memiliki sebuah method bernama getGPA()
+          yang hanya menggunakan class School untuk melakukan perhitungan. Ini
+          adalah tanda dari Feature Envy karena kelas Student lebih tertarik
+          dengan fitur dari kelas School daripada dengan datanya sendiri.
+        </p>
+      </div>
+      <div class="be-img">
+        <img src="img/featureBefore.png" alt="ss" />
+      </div>
+
+      <div class="r">
+        <h3>Refactor :</h3>
+        <p>
+          Sekarang, class Student bertanggung jawab untuk menghitung GPA-nya
+          sendiri, yang merupakan suatu bentuk penerapan yang baik dalam desain
+          berorientasi objek. Aroma Feature Envy telah dihilangkan dengan
+          memindahkan logika perhitungan ke class Student. Hal ini mengurangi
+          tight coupling antara kelas Student dan School.
+        </p>
+      </div>
+      <div class="b-img">
+        <img src="img/featureAfter.png" alt="s" />
+      </div>
+    </section>
+
+    <!--Fea end-->
+
+    <!--Inapp start-->
+    <section id="Inapp" class="Inapp">
+      <h2>INAPPROPRIATE INTIMACY</h2>
+
+      <div class="ina">
+        <div class="ina-img">
+          <img src="img/pngwing.png" alt="INAPPROPRIATE INTIMACY" />
+        </div>
+
+        <div class="propri">
+          <p>
+            Inappropriate Intimacy adalah code smell dimana dua class memiliki
+            keterkaitan yang erat antara satu sama lain (intimate) sehingga
+            suatu class dapat mengeksploitasi internal field atau method dari
+            class lain. Dalam kata lain, kedua class sangat bergantung pada
+            detail internal satu sama lain, sering kali melalui akses langsung
+            ke data yang bersifat private atau protected.
+          </p>
+        </div>
+      </div>
+
+      <div class="in">
+        <h3>Contoh :</h3>
+        <p>
+          Pada kasus ini, dapat terlihat adanya keterkaitan yang tidak
+          diperlukan antara class EmployeeEarnings dan TaxCalculator dimana
+          keduanya saling mengakses field internal class (EmployeeEarnings) dan
+          juga mengakses method calculateTax (TaxCalculator) dengan cara yang
+          tidak efektif.
+        </p>
+      </div>
+      <div class="in-img">
+        <img src="img/InappBefore.png" alt="ii" />
+      </div>
+
+      <div class="i">
+        <h3>Refactor :</h3>
+        <p>
+          Dengan mengubah TaxCalculator menjadi interface, sekarang class
+          EmployeeEarnings dapat mengkalkulasikan gaji pekerja dipotong pajak
+          tanpa perlu membiarkan class lain mengakses data-data internalnya
+          secara langsung sehingga enkapsulasi pun tetap terjaga dan
+          fleksibilitas cara perhitungan gaji dipotong pajak pun terdukung.
+        </p>
+      </div>
+      <div class="i-img">
+        <img src="img/InappAfter.png" alt="i" />
+      </div>
+    </section>
+    <!--Inapp end-->
+
+    <!--MessageChain Start-->
+    <section id="Mess" class="Mess">
+      <h2>MESSAGE CHAIN</h2>
+
+      <div class="Messa">
+        <div class="Mess-img">
+          <img src="img/messagechain.png" alt="MESSAGE CHAIN" />
+        </div>
+
+        <div class="Message">
+          <p>
+            Message Chains adalah code smell dimana ketika ingin mengakses
+            sebuah objek, perlu dilakukan pengaksesan ke objek lainnya melalui
+            pemanggilan dari hasil return method secara terus menerus sehingga
+            membentuk rantai. Dalam hal ini, kita pun menjadi bergantung pada
+            navigasi dari rantai tersebut untuk mengakses suatu objek.
+          </p>
+        </div>
+      </div>
+
+      <div class="Me">
+        <h3>Contoh :</h3>
+        <p>
+          Pada kasus ini, agar dapat mengakses riwayat username dari akun
+          tertentu melalui email memerlukan proses pemanggilan method secara
+          beruntutan. Hal ini membuat penulisan prosesnya menjadi sangat panjang
+          dan sulit dibaca seandainya ada tambahan delegasi.
+        </p>
+      </div>
+      <div class="Me-img">
+        <img src="img/messageBefore.png" alt="mm" />
+      </div>
+
+      <div class="messag">
+        <h3>Refactor :</h3>
+        <p>
+          Sekarang dengan adanya method baru di class UserAccount yang membantu
+          pengambilan riwayat username, proses mengakses riwayat username dari
+          akun tertentu melalui email dapat kita persingkat melalui hide
+          delegation.
+        </p>
+      </div>
+      <div class="Refac-img">
+        <img src="img/messageAfter.png" alt="rr" />
+      </div>
+    </section>
+    <!--MessageChain End-->
+
+    <!--Middle Man start-->
+    <section id="midd" class="midd">
+      <h2>MIDDLE MAN</h2>
+
+      <div class="Middle">
+        <div class="middleMan-img">
+          <img src="img/MiddleMan.png" alt="MIDDLE MAN" />
+        </div>
+
+        <div class="Mi">
+          <p>
+            Middle Man adalah code smell dimana suatu class hanya berfungsi
+            sebagai delegator. Dalam kata lain, fungsionalitas dari class
+            tersebut hanyalah mendelegasikan tugas ke class lain sehingga apa
+            kontribusinya terhadap fungsionalitas keseluruhan program?
+          </p>
+        </div>
+      </div>
+
+      <div class="conMiddle">
+        <h3>Contoh :</h3>
+        <p>
+          Pada kasus ini, class Middleman sepenuhnya berfungsi hanya untuk
+          mendelegasikan tugas kepada class Material untuk mendapatkan informasi
+          dan extra dari material. Padahal sebenarnya bisa saja dilakukan
+          langsung oleh class Material tanpa perlunya proses delegasi melalui
+          class Middleman.
+        </p>
+      </div>
+      <div class="con-img">
+        <img src="img/middleManBefore.png" alt="mm" />
+      </div>
+      <div class="reMiddle">
+        <h3>Refactor :</h3>
+        <p>
+          Dengan menghapus Middleman kita bisa langsung mengakses info atau
+          extra dari material melalui kedua methodnya sehingga proses akses pun
+          dipersingkat.
+        </p>
+      </div>
+      <div class="Re-img">
+        <img src="img/MiddleManAfter.png" alt="m" />
+      </div>
+    </section>
+    <!--Middle man end-->
+
+    <!--Icon-->
+    <script>
+      feather.replace();
+    </script>
+
+    <!--javascript-->
+    <script src="js/script.js"></script>
+  </body>
+</html>

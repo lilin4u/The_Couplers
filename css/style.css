@@ -1,0 +1,371 @@
+:root {
+  --primary: #910a67;
+  --bg: #030637;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+  border: none;
+  text-decoration: none;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: var(--bg);
+  color: #fff;
+  min-height: 5000px;
+}
+
+/*navbar*/
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /*1.4 x 16 layar untuk atas bawah*/
+  /*7% layar untuk kiri kanan*/
+  padding: 1.4rem 7%;
+  background-color: rgba(3, 6, 55, 0.8);
+  border-bottom: 1px solid var(--primary);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+}
+
+.navbar .navbar-logo {
+  font-size: 2rem;
+  font-weight: 900;
+  color: #fff;
+  font-style: italic;
+}
+
+.navbar .navbar-logo span {
+  color: var(--primary);
+}
+
+.navbar .navbar-nav a {
+  color: #fff;
+  /*margin*/
+  display: inline-block;
+  font-size: 1.2rem;
+  margin: 0 3rem;
+  text-decoration: none;
+  position: relative;
+  transition: 0.2s linear;
+}
+
+.navbar .navbar-nav a:hover {
+  color: var(--primary);
+}
+
+.navbar .navbar-nav a::after {
+  content: "";
+  display: block;
+  padding-bottom: 0.5rem;
+  border-bottom: 0.1rem solid var(--primary);
+  transform: scaleX(0);
+  transition: 0.2s linear;
+}
+
+.navbar .navbar-nav a:hover::after {
+  transform: scaleX(0.5);
+}
+.navbar p{
+  font-size: 0.8rem;
+  color: #E41F7B;
+  text-decoration: underline;
+}
+
+.navbar .navbar-side a {
+  color: #fff;
+  margin: 0 0.5rem;
+}
+
+.navbar .navbar-side a:hover {
+  color: var(--primary);
+}
+
+#side-menu {
+  display: none;
+}
+
+/*picture(the couplers)*/
+.picture {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  background-image: url("../img/mohammad-rahmani-1bNQVGzuy0U-unsplash.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  position: relative;
+}
+.picture::after {
+  contain: "";
+  width: 100%;
+  height: 30%;
+  display: block;
+  position: absolute;
+  background: linear-gradient(
+    0deg,
+    rgba(3, 6, 55, 0.8) 8%,
+    rgba(255, 255, 255, 0) 50%
+  );
+}
+.picture .content h1 {
+  font-size: 3.9em;
+  color: #fff;
+  text-shadow: 1px 1px 3px rgba(3, 6, 55, 0.8);
+  line-height: 1.3;
+}
+/*ukuran paragrafnya*/
+.picture .content p {
+  font-size: 0.9rem;
+  margin-top: 0.9rem;
+  line-height: 1.5;
+  mix-blend-mode: difference;
+}
+.picture .content {
+  padding: 1.4rem 7%;
+  max-width: 60rem;
+}
+
+/*Feature Envy*/
+.Fea {
+  padding: 9rem 7% 1.4rem;
+}
+.Fea h2 {
+  text-align: center;
+  font-size: 2.6rem;
+  margin-bottom: 3rem;
+}
+.Fea .row {
+  display: flex;
+}
+.Fea .row .fea-img,
+.rw .be-img,
+.r .b-img {
+  flex: 1 1 40rem;
+}
+.Fea .row .fea-img img,
+.rw .be-img img,
+.r .b-img img {
+  width: 80%;
+}
+.Fea .row .content,
+.rw,
+.r {
+  flex: 1 1 45rem;
+  padding: 0 1rem;
+}
+.Fea .row .content h3,
+.rw h3,
+.r h3 {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+}
+.Fea .row .content p,
+.rw p,
+.r p {
+  margin-bottom: 0.8rem;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+/*Inappropriate Intimacy*/
+.Inapp .ina .propri p,
+.in p,
+.i p {
+  margin-bottom: 0.8rem;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+.Inapp .ina .propri h3,
+.in h3,
+.i h3 {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+}
+.Inapp {
+  padding: 9rem 7% 1.4rem;
+}
+.Inapp h2 {
+  text-align: center;
+  font-size: 2.6rem;
+  margin-bottom: 3rem;
+}
+.Inapp .ina {
+  display: flex;
+}
+.Inapp .ina .ina-img,
+.in .in-img,
+.i .i-img {
+  flex: 1 1 45rem;
+}
+.Inapp .ina .ina-img img,
+.in .in-img img,
+.i .i-img img {
+  width: 80%;
+}
+.Inapp .ina .propri,
+.ina,
+.in {
+  flex: 1 0.8 45rem;
+  padding: 0 1rem;
+}
+
+/*Message Chain*/
+.Mess {
+  padding: 9rem 7% 1.4rem;
+}
+.Mess h2 {
+  text-align: center;
+  font-size: 2.6rem;
+  margin-bottom: 3rem;
+}
+.Mess .Messa {
+  display: flex;
+}
+.Mess .Messa .Mess-img,
+.Me .Me-img,
+.messag .Refac-img {
+  flex: 1 1 45rem;
+}
+.Mess .Messa .Mess-img img,
+.Me .Me-img img,
+.messag .Refac-img img {
+  width: 70%;
+}
+.Mess .Messa .Message,
+.Me,
+.messag {
+  flex: 1 0.8 45rem;
+  padding: 0 1rem;
+}
+.Mess .Messa .Message p,
+.Me p,
+.messag p {
+  margin-bottom: 0.8rem;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+.Mess .Messa .Message h3,
+.Me h3,
+.messag h3 {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+}
+
+/*Middle Man*/
+.midd {
+  padding: 9rem 7% 1.4rem;
+}
+.midd h2 {
+  text-align: center;
+  font-size: 2.6rem;
+  margin-bottom: 3rem;
+}
+.midd .Middle {
+  display: flex;
+}
+.midd .Middle .middleMan-img,
+.conMiddle .con-img,
+.reMiddle .Re-img {
+  flex: 1 1 95rem;
+}
+.midd .Middle .middleMan-img img,
+.conMiddle .con-img img,
+.reMiddle .Re-img img {
+  width: 75%;
+}
+
+.midd .Middle .Mi,
+.conMiddle,
+.reMiddle {
+  flex: 1 0.8 45rem;
+  padding: 0 1rem;
+}
+.midd .Middle .Mi p,
+.conMiddle p,
+.reMiddle p {
+  margin-bottom: 0.8rem;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+.midd .Middle .Mi h3,
+.conMiddle h3,
+.reMiddle h3 {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+}
+
+/*size berdasarkan mobile
+/*handphone, ipad, laptop*/
+@media (max-width: 450px) {
+  html {
+    font-size: 55%;
+  }
+}
+@media (max-width: 768px) {
+  html {
+    font-size: 62.5%;
+  }
+  #side-menu {
+    display: inline-block;
+  }
+  /*memindahkan navbar-nav ke dalam side menunya*/
+  .navbar .navbar-nav {
+    position: absolute;
+    transition: 0.3s;
+    top: 100%;
+    right: -100%;
+    background-color: #fff;
+    height: 100vh;
+    width: 30rem;
+  }
+  .navbar .navbar-nav a {
+    color: var(--bg);
+    display: block;
+    margin: 1.5rem;
+    padding: 0.5rem;
+    font-size: 2rem;
+  }
+  .navbar .navbar-nav a::after {
+    transform-origin: 0 0;
+  }
+  .navbar .navbar-nav a:hover::after {
+    transform: scaleX(0.2);
+  }
+
+  .Fea .row {
+    flex-wrap: wrap;
+  }
+
+  .Fea .row .fea-img img {
+    height: 24rem;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  .Fea .row .content {
+    padding: 0;
+  }
+
+  .Fea .row .content h3 {
+    margin-top: 1rem;
+    font-size: 1.6rem;
+  }
+
+  .navbar .navbar-nav.active {
+    right: 0;
+  }
+}
+@media (max-width: 1366px) {
+  html {
+    font-size: 75%;
+  }
+}
